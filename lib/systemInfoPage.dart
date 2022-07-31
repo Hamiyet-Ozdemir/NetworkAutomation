@@ -1,50 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:inova1/systemInfoPage.dart';
-import 'package:intl/intl.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
 var data1 = [0.0, -2.0, 3.5, -2.0, 0.5, 0.7, 0.8, 1.0, 2.0, 3.0, 3.2];
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class systemInfoPage extends StatefulWidget {
+  systemInfoPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _systemInfoPage createState() => _systemInfoPage();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  final DateTime now = DateTime.now();
-  final DateFormat formatterr = DateFormat.yMMMMd('en_US');
+class _systemInfoPage extends State<systemInfoPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -53,8 +22,8 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
-              padding: const EdgeInsets.only(top: 55, left: 14),
-              height: 120,
+              padding: const EdgeInsets.only(top: 25, left: 14),
+              height: 70,
               width: MediaQuery.of(context).size.width,
               color: Colors.white,
               child: Column(
@@ -66,17 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontSize: 12,
                         color: Color.fromRGBO(0, 215, 255, 1)),
                     child: Text(
-                      formatterr.format(now),
+                      DateTime.now().toString(),
                     ),
                   ),
-                  SizedBox(height: 5),
-                  // GestureDetector(
-                  //     onTap: () {
-                  //       Navigator.of(context).push(new MaterialPageRoute(
-                  //           builder: (BuildContext context) =>
-                  //               new systemInfoPage()));
-                  //     },
-                  //     child:
                   DefaultTextStyle(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -89,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
               )),
           Container(
               color: Color.fromRGBO(247, 248, 251, 1),
-              height: MediaQuery.of(context).size.height - 120,
+              height: MediaQuery.of(context).size.height - 75,
               width: double.infinity,
               child: Column(
                 children: [
@@ -120,10 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Row(
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.only(right: 0),
+                                    margin: EdgeInsets.only(right: 17),
                                     child: new LinearPercentIndicator(
                                       width: MediaQuery.of(context).size.width -
-                                          210,
+                                          200,
                                       lineHeight: 28.0,
                                       percent: 0.5,
                                       backgroundColor: Colors.grey,
@@ -235,8 +196,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Column(
                                 children: [
                                   Container(
-                                      height: 40,
-                                      width: 40,
+                                      height: 50,
+                                      width: 50,
                                       child: Container(
                                           decoration: BoxDecoration(
                                               borderRadius:
@@ -247,7 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             child: DefaultTextStyle(
                                               style: TextStyle(
                                                 fontWeight: FontWeight.normal,
-                                                fontSize: 22,
+                                                fontSize: 28,
                                                 color: Colors.black,
                                               ),
                                               child: Text("25"),
@@ -256,7 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   DefaultTextStyle(
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 12,
+                                      fontSize: 16,
                                       color: Colors.black,
                                     ),
                                     child: Text("Current"),
@@ -329,7 +290,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             end: Alignment.bottomCenter,
                             colors: [
                               Color.fromRGBO(28, 107, 226, 0.6),
-                              Color.fromRGBO(28, 107, 226, 0.2)
+                              Color.fromRGBO(28, 107, 226, 0.6)
                             ],
                           ),
                         ),
@@ -337,9 +298,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Container(
-                      height: 220,
+                      height: 176,
                       margin: EdgeInsets.only(left: 14, right: 14, top: 23),
-                      padding: EdgeInsets.only(top: 0, right: 25, left: 0),
+                      padding: EdgeInsets.only(top: 11, right: 25, left: 0),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20)),
